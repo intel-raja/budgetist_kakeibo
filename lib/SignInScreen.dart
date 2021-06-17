@@ -38,37 +38,34 @@ class SignInScreen extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(65.0, 697.0),
+          Pinned.fromPins(
+            Pin(size: 179.0, middle: 0.3316),
+            Pin(size: 28.0, end: 87.0),
             child:
                 // Adobe XD layer: 'Don’t have a accoun…' (text)
-                SizedBox(
-              width: 179.0,
-              height: 28.0,
-              child: Text(
-                'Don’t have a account? ',
-                style: TextStyle(
-                  fontFamily: 'segeo ui',
-                  fontSize: 18,
-                  color: const Color(0xff000000),
-                ),
-                textAlign: TextAlign.left,
+                Text(
+              'Don’t have a account? ',
+              style: TextStyle(
+                fontFamily: 'segeo ui',
+                fontSize: 18,
+                color: const Color(0xff000000),
               ),
+              textAlign: TextAlign.left,
             ),
           ),
-          Transform.translate(
-            offset: Offset(119.0, 325.0),
-            child: SizedBox(
-              width: 138.0,
-              height: 40.0,
-              child:
-                  // Adobe XD layer: 'Sign in button' (group)
-                  Stack(
-                children: <Widget>[
-                  // Adobe XD layer: 'Rectangle 2' (shape)
-                  Container(
-                    width: 138.0,
-                    height: 40.0,
+          Pinned.fromPins(
+            Pin(size: 138.0, middle: 0.5021),
+            Pin(size: 40.0, middle: 0.421),
+            child:
+                // Adobe XD layer: 'Sign in button' (group)
+                Stack(
+              children: <Widget>[
+                Pinned.fromPins(
+                  Pin(start: 0.0, end: 0.0),
+                  Pin(start: 0.0, end: 0.0),
+                  child:
+                      // Adobe XD layer: 'Rectangle 2' (shape)
+                      Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: const Color(0xffffc700),
@@ -81,36 +78,36 @@ class SignInScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Transform.translate(
-                    offset: Offset(30.0, 2.0),
-                    child: Text(
-                      'Sign in',
-                      style: TextStyle(
-                        fontFamily: 'segeo ui',
-                        fontSize: 26,
-                        color: const Color(0xff000000),
-                        shadows: [
-                          Shadow(
-                            color: const Color(0x29000000),
-                            offset: Offset(0, 4),
-                            blurRadius: 8,
-                          )
-                        ],
-                      ),
-                      textAlign: TextAlign.left,
+                ),
+                Pinned.fromPins(
+                  Pin(size: 78.0, middle: 0.5),
+                  Pin(start: 2.0, end: 3.0),
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(
+                      fontFamily: 'segeo ui',
+                      fontSize: 26,
+                      color: const Color(0xff000000),
+                      shadows: [
+                        Shadow(
+                          color: const Color(0x29000000),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        )
+                      ],
                     ),
+                    textAlign: TextAlign.left,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Transform.translate(
-            offset: Offset(44.0, 250.0),
+          Pinned.fromPins(
+            Pin(start: 44.0, end: 48.0),
+            Pin(size: 43.0, middle: 0.3251),
             child:
                 // Adobe XD layer: 'Rectangle 15' (shape)
                 Container(
-              width: 283.0,
-              height: 43.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
                 color: const Color(0xffffffff),
@@ -125,19 +122,19 @@ class SignInScreen extends StatelessWidget {
               ),
             ),
           ),
-          Transform.translate(
-            offset: Offset(44.0, 184.0),
-            child: SizedBox(
-              width: 283.0,
-              height: 43.0,
-              child:
-                  // Adobe XD layer: 'Email field' (group)
-                  Stack(
-                children: <Widget>[
-                  // Adobe XD layer: 'Rectangle 15' (shape)
-                  Container(
-                    width: 283.0,
-                    height: 43.0,
+          Pinned.fromPins(
+            Pin(start: 44.0, end: 48.0),
+            Pin(size: 43.0, middle: 0.2393),
+            child:
+                // Adobe XD layer: 'Email field' (group)
+                Stack(
+              children: <Widget>[
+                Pinned.fromPins(
+                  Pin(start: 0.0, end: 0.0),
+                  Pin(start: 0.0, end: 0.0),
+                  child:
+                      // Adobe XD layer: 'Rectangle 15' (shape)
+                      Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: const Color(0xffffffff),
@@ -152,8 +149,8 @@ class SignInScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Pinned.fromPins(
@@ -171,8 +168,9 @@ class SignInScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Transform.translate(
-            offset: Offset(244.0, 690.0),
+          Pinned.fromPins(
+            Pin(size: 78.0, middle: 0.8215),
+            Pin(size: 32.0, end: 90.0),
             child: Text(
               'Sign in',
               style: TextStyle(
@@ -185,13 +183,12 @@ class SignInScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Transform.translate(
-            offset: Offset(13.0, 458.0),
+          Pinned.fromPins(
+            Pin(start: 13.0, end: 13.0),
+            Pin(size: 184.0, middle: 0.7293),
             child:
                 // Adobe XD layer: '13218' (shape)
                 Container(
-              width: 349.0,
-              height: 184.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/signinimage.png'),
