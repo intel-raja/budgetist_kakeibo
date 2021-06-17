@@ -20,62 +20,65 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 138.0, middle: 0.4895),
-            Pin(size: 40.0, middle: 0.4948),
-            child:
-                // Adobe XD layer: 'Sign up button' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: 0.0),
-                  child:
-                      // Adobe XD layer: 'Rectangle 2' (shape)
-                      SvgPicture.string(
-                    _svg_h2gs10,
-                    allowDrawingOutsideViewBox: true,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Pinned.fromPins(
-                  Pin(start: 32.0, end: 32.0),
-                  Pin(start: 3.0, end: 4.0),
-                  child:
-                      // Adobe XD layer: 'Sign up' (text)
-                      Text(
-                    'Sign up ',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 22,
-                      color: const Color(0xff000000),
-                      shadows: [
-                        Shadow(
-                          color: const Color(0x29000000),
-                          offset: Offset(0, 4),
-                          blurRadius: 8,
-                        )
-                      ],
+          Transform.translate(
+            offset: Offset(116.0, 382.0),
+            child: SizedBox(
+              width: 138.0,
+              height: 40.0,
+              child:
+                  // Adobe XD layer: 'Sign up button' (group)
+                  Stack(
+                children: <Widget>[
+                  SizedBox(
+                    width: 138.0,
+                    height: 40.0,
+                    child: SvgPicture.string(
+                      _svg_h2gs10,
+                      allowDrawingOutsideViewBox: true,
                     ),
-                    textAlign: TextAlign.left,
                   ),
-                ),
-              ],
+                  Transform.translate(
+                    offset: Offset(32.0, 3.0),
+                    child:
+                        // Adobe XD layer: 'Sign up' (text)
+                        SizedBox(
+                      width: 74.0,
+                      height: 33.0,
+                      child: Text(
+                        'Sign up ',
+                        style: TextStyle(
+                          fontFamily: 'segeo ui',
+                          fontSize: 22,
+                          color: const Color(0xff000000),
+                          shadows: [
+                            Shadow(
+                              color: const Color(0x29000000),
+                              offset: Offset(0, 4),
+                              blurRadius: 8,
+                            )
+                          ],
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 46.0, end: 46.0),
-            Pin(size: 43.0, middle: 0.4148),
-            child:
-                // Adobe XD layer: 'Password field' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: 0.0),
-                  child:
-                      // Adobe XD layer: 'Rectangle 16' (shape)
-                      Container(
+          Transform.translate(
+            offset: Offset(46.0, 319.0),
+            child: SizedBox(
+              width: 283.0,
+              height: 43.0,
+              child:
+                  // Adobe XD layer: 'Password field' (group)
+                  Stack(
+                children: <Widget>[
+                  // Adobe XD layer: 'Rectangle 16' (shape)
+                  Container(
+                    width: 283.0,
+                    height: 43.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: const Color(0xffffffff),
@@ -90,23 +93,23 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 46.0, end: 46.0),
-            Pin(size: 43.0, middle: 0.3277),
-            child:
-                // Adobe XD layer: 'Email field' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: 0.0),
-                  child:
-                      // Adobe XD layer: 'Rectangle 15' (shape)
-                      Container(
+          Transform.translate(
+            offset: Offset(46.0, 252.0),
+            child: SizedBox(
+              width: 283.0,
+              height: 43.0,
+              child:
+                  // Adobe XD layer: 'Email field' (group)
+                  Stack(
+                children: <Widget>[
+                  // Adobe XD layer: 'Rectangle 15' (shape)
+                  Container(
+                    width: 283.0,
+                    height: 43.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: const Color(0xffffffff),
@@ -121,23 +124,23 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 46.0, end: 46.0),
-            Pin(size: 43.0, middle: 0.2393),
-            child:
-                // Adobe XD layer: 'Full name field' (group)
-                Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: 0.0),
-                  child:
-                      // Adobe XD layer: 'Rectangle 13' (shape)
-                      Container(
+          Transform.translate(
+            offset: Offset(46.0, 184.0),
+            child: SizedBox(
+              width: 283.0,
+              height: 43.0,
+              child:
+                  // Adobe XD layer: 'Full name field' (group)
+                  Stack(
+                children: <Widget>[
+                  // Adobe XD layer: 'Rectangle 13' (shape)
+                  Container(
+                    width: 283.0,
+                    height: 43.0,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: const Color(0xffffffff),
@@ -152,47 +155,49 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 106.0, start: 36.0),
-            Pin(size: 35.0, start: 105.0),
+          Transform.translate(
+            offset: Offset(36.0, 105.0),
             child:
                 // Adobe XD layer: 'Sign up' (text)
-                SingleChildScrollView(
-                    child: Text(
+                Text(
               'Sign up',
               style: TextStyle(
-                fontFamily: 'Roboto',
+                fontFamily: 'segeo ui',
                 fontSize: 30,
                 color: const Color(0xff1d1d1d),
               ),
               textAlign: TextAlign.left,
-            )),
-          ),
-          Pinned.fromPins(
-            Pin(size: 196.0, middle: 0.324),
-            Pin(size: 28.0, end: 91.0),
-            child:
-                // Adobe XD layer: 'Already have a acco…' (text)
-                Text(
-              'Already have a account? ',
-              style: TextStyle(
-                fontFamily: 'Roboto',
-                fontSize: 18,
-                color: const Color(0xff000000),
-              ),
-              textAlign: TextAlign.left,
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 84.0, end: 83.0),
-            Pin(size: 189.0, middle: 0.7608),
+          Transform.translate(
+            offset: Offset(58.0, 693.0),
+            child:
+                // Adobe XD layer: 'Already have a acco…' (text)
+                SizedBox(
+              width: 196.0,
+              height: 28.0,
+              child: Text(
+                'Already have a account? ',
+                style: TextStyle(
+                  fontFamily: 'segeo ui',
+                  fontSize: 18,
+                  color: const Color(0xff000000),
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+          ),
+          Transform.translate(
+            offset: Offset(84.0, 474.0),
             child:
                 // Adobe XD layer: '3568988 1' (shape)
                 Container(
+              width: 208.0,
+              height: 189.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/signupimage.png'),
@@ -201,13 +206,12 @@ class SignupScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 72.0, end: 49.0),
-            Pin(size: 32.0, end: 95.0),
+          Transform.translate(
+            offset: Offset(254.0, 685.0),
             child: Text(
               'Sign in',
               style: TextStyle(
-                fontFamily: 'Roboto',
+                fontFamily: 'segeo ui',
                 fontSize: 24,
                 color: const Color(0xff000000),
                 decoration: TextDecoration.underline,
