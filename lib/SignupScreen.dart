@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Signup extends StatelessWidget {
-  Signup({
-    Key key,
-  }) : super(key: key);
+class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +32,10 @@ class Signup extends StatelessWidget {
                   Pin(start: 0.0, end: 0.0),
                   child:
                       // Adobe XD layer: 'Rectangle 2' (shape)
-                      Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: const Color(0xffffc700),
-                    ),
+                      SvgPicture.string(
+                    _svg_h2gs10,
+                    allowDrawingOutsideViewBox: true,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 Pinned.fromPins(
@@ -52,6 +49,13 @@ class Signup extends StatelessWidget {
                       fontFamily: 'Roboto',
                       fontSize: 22,
                       color: const Color(0xff000000),
+                      shadows: [
+                        Shadow(
+                          color: const Color(0x29000000),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        )
+                      ],
                     ),
                     textAlign: TextAlign.left,
                   ),
@@ -77,6 +81,13 @@ class Signup extends StatelessWidget {
                       color: const Color(0xffffffff),
                       border: Border.all(
                           width: 1.5, color: const Color(0xff1d1d1d)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0x29000000),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -101,6 +112,13 @@ class Signup extends StatelessWidget {
                       color: const Color(0xffffffff),
                       border: Border.all(
                           width: 1.5, color: const Color(0xff1d1d1d)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0x29000000),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -125,6 +143,13 @@ class Signup extends StatelessWidget {
                       color: const Color(0xffffffff),
                       border: Border.all(
                           width: 1.5, color: const Color(0xff1d1d1d)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0x29000000),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -148,35 +173,19 @@ class Signup extends StatelessWidget {
             )),
           ),
           Pinned.fromPins(
-            Pin(start: 58.0, end: 46.0),
-            Pin(size: 28.0, end: 84.0),
+            Pin(size: 196.0, middle: 0.324),
+            Pin(size: 28.0, end: 91.0),
             child:
                 // Adobe XD layer: 'Already have a acco…' (text)
-                SingleChildScrollView(
-                    child: Text.rich(
-              TextSpan(
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 18,
-                  color: const Color(0xff000000),
-                ),
-                children: [
-                  TextSpan(
-                    text: 'Already have a account? ',
-                  ),
-                  TextSpan(
-                    text: 'Sign in ',
-                    style: TextStyle(
-                      fontSize: 24,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ],
+                Text(
+              'Already have a account? ',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 18,
+                color: const Color(0xff000000),
               ),
-              textHeightBehavior:
-                  TextHeightBehavior(applyHeightToFirstAscent: false),
               textAlign: TextAlign.left,
-            )),
+            ),
           ),
           Pinned.fromPins(
             Pin(start: 84.0, end: 83.0),
@@ -186,10 +195,24 @@ class Signup extends StatelessWidget {
                 Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage(''),
+                  image: const AssetImage('assets/images/signupimage.png'),
                   fit: BoxFit.cover,
                 ),
               ),
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(size: 72.0, end: 49.0),
+            Pin(size: 32.0, end: 95.0),
+            child: Text(
+              'Sign in',
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 24,
+                color: const Color(0xff000000),
+                decoration: TextDecoration.underline,
+              ),
+              textAlign: TextAlign.left,
             ),
           ),
         ],
@@ -197,3 +220,6 @@ class Signup extends StatelessWidget {
     );
   }
 }
+
+const String _svg_h2gs10 =
+    '<svg viewBox="111.0 382.0 138.0 40.0" ><defs><filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="8"/></filter></defs><path transform="translate(111.0, 382.0)" d="M 10 0 L 128 0 C 133.5228424072266 0 138 4.477152347564697 138 10 L 138 29.99999237060547 C 138 35.5228385925293 133.5228424072266 39.99999237060547 128 39.99999237060547 L 10 39.99999237060547 C 4.477152347564697 39.99999237060547 0 35.5228385925293 0 29.99999237060547 L 0 10 C 0 4.477152347564697 4.477152347564697 0 10 0 Z" fill="#ffc700" stroke="none" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" filter="url(#shadow)"/></svg>';
