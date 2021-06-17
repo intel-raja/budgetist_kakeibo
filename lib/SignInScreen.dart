@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
-class SignInScreen extends StatefulWidget {
-  @override
-  _SignInScreenState createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
-  TextEditingController _emailController = TextEditingController();
+class SignInScreen extends StatelessWidget {
+  SignInScreen({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,6 +89,13 @@ class _SignInScreenState extends State<SignInScreen> {
                         fontFamily: 'segeo ui',
                         fontSize: 26,
                         color: const Color(0xff000000),
+                        shadows: [
+                          Shadow(
+                            color: const Color(0x29000000),
+                            offset: Offset(0, 4),
+                            blurRadius: 8,
+                          )
+                        ],
                       ),
                       textAlign: TextAlign.left,
                     ),
@@ -146,9 +150,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           blurRadius: 8,
                         ),
                       ],
-                    ),
-                    child: TextField(
-                      controller: _emailController,
                     ),
                   ),
                 ],
