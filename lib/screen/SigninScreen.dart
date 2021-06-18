@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
 
 class SigninScreen extends StatelessWidget {
   SigninScreen({
@@ -77,9 +76,8 @@ class SigninScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 75.0, middle: 0.5015),
-            Pin(size: 29.0, middle: 0.4717),
+          Transform.translate(
+            offset: Offset(170.0, 409.0),
             child: Text(
               'Sign in',
               style: TextStyle(
