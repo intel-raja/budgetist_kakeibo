@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignupScreen extends StatelessWidget {
-  SignupScreen({
-    Key? key,
-  }) : super(key: key);
+class SignupScreen extends StatefulWidget {
+  @override
+  _SignupScreenState createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  TextEditingController _emailcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,6 +125,9 @@ class SignupScreen extends StatelessWidget {
                           blurRadius: 8,
                         ),
                       ],
+                    ),
+                    child: TextField(
+                      controller: _emailcontroller,
                     ),
                   ),
                 ),

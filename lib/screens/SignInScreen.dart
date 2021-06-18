@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({
-    Key? key,
-  }) : super(key: key);
+class SignInScreen extends StatefulWidget {
+  @override
+  _SignInScreenState createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  TextEditingController emailcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,6 +150,9 @@ class SignInScreen extends StatelessWidget {
                           blurRadius: 8,
                         ),
                       ],
+                    ),
+                    child: TextField(
+                      controller: emailcontroller,
                     ),
                   ),
                 ),
