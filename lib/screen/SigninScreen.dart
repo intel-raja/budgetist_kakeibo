@@ -11,9 +11,8 @@ class SigninScreen extends StatelessWidget {
       backgroundColor: const Color(0xffffffff),
       body: Stack(
         children: <Widget>[
-          Pinned.fromPins(
-            Pin(start: 48.0, end: 47.0),
-            Pin(size: 34.0, end: 46.0),
+          Transform.translate(
+            offset: Offset(48.0, 816.0),
             child: Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -50,12 +49,13 @@ class SigninScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 37.0, end: 36.0),
-            Pin(size: 181.0, middle: 0.786),
+          Transform.translate(
+            offset: Offset(37.0, 562.0),
             child:
                 // Adobe XD layer: 'pic1' (shape)
                 Container(
+              width: 341.0,
+              height: 181.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/signinimage.png'),
@@ -64,12 +64,13 @@ class SigninScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 166.0, middle: 0.5),
-            Pin(size: 49.0, middle: 0.4711),
+          Transform.translate(
+            offset: Offset(124.0, 399.0),
             child:
                 // Adobe XD layer: 'Rectangle sign in' (shape)
                 Container(
+              width: 166.0,
+              height: 49.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
                 color: const Color(0xff6500fc),
@@ -90,12 +91,13 @@ class SigninScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 36.0, end: 36.0),
-            Pin(size: 52.0, middle: 0.3519),
+          Transform.translate(
+            offset: Offset(36.0, 297.0),
             child:
                 // Adobe XD layer: 'Rectangle pass' (shape)
                 Container(
+              width: 342.0,
+              height: 52.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 color: const Color(0xffffffff),
@@ -103,9 +105,8 @@ class SigninScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 102.0, start: 36.0),
-            Pin(size: 29.0, middle: 0.2953),
+          Transform.translate(
+            offset: Offset(36.0, 256.0),
             child: Text(
               'Password',
               style: TextStyle(
@@ -117,12 +118,13 @@ class SigninScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Pinned.fromPins(
-            Pin(start: 36.0, end: 36.0),
-            Pin(size: 52.0, middle: 0.2275),
+          Transform.translate(
+            offset: Offset(36.0, 192.0),
             child:
                 // Adobe XD layer: 'Rectangle email' (shape)
                 Container(
+              width: 342.0,
+              height: 52.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
                 color: const Color(0xffffffff),
@@ -130,9 +132,8 @@ class SigninScreen extends StatelessWidget {
               ),
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 102.0, start: 36.0),
-            Pin(size: 29.0, middle: 0.1742),
+          Transform.translate(
+            offset: Offset(36.0, 151.0),
             child: Text(
               'E-mail ID',
               style: TextStyle(
@@ -144,9 +145,8 @@ class SigninScreen extends StatelessWidget {
               textAlign: TextAlign.left,
             ),
           ),
-          Pinned.fromPins(
-            Pin(size: 100.0, start: 36.0),
-            Pin(size: 39.0, start: 56.0),
+          Transform.translate(
+            offset: Offset(36.0, 56.0),
             child: Text(
               'Sign in',
               style: TextStyle(
