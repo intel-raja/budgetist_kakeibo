@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SigninScreen extends StatefulWidget {
-  @override
-  _SigninScreenState createState() => _SigninScreenState();
-}
-
-class _SigninScreenState extends State<SigninScreen> {
-  TextEditingController _emailcontroller = TextEditingController();
+class SigninScreen extends StatelessWidget {
+  SigninScreen({
+    Key key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +119,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 borderRadius: BorderRadius.circular(25.0),
                 color: const Color(0xff6500fc),
               ),
-              
+            ),
           ),
           Pinned.fromPins(
             Pin(size: 75.0, middle: 0.5015),
