@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  adobe_xd: ^2.0.0+1
+  
   appwrite: ^0.6.4
   cupertino_icons: ^1.0.2
   dio: ^4.0.0

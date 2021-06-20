@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-class SigninScreen extends StatelessWidget {
-  SigninScreen({
-    Key key,
-  }) : super(key: key);
+class SigninScreen extends StatefulWidget {
+  @override
+  _SigninScreenState createState() => _SigninScreenState();
+}
+
+class _SigninScreenState extends State<SigninScreen> {
+  TextEditingController _emailcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +56,8 @@ class SigninScreen extends StatelessWidget {
             child:
                 // Adobe XD layer: 'pic1' (shape)
                 Container(
-              width: 341.0,
-              height: 181.0,
+              width: 340.0,
+              height: 180.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: const AssetImage('assets/images/signinimage.png'),
@@ -100,6 +103,9 @@ class SigninScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0),
                 color: const Color(0xffffffff),
                 border: Border.all(width: 1.0, color: const Color(0xff707070)),
+              ),
+              child: TextField(
+                controller: _emailcontroller,
               ),
             ),
           ),

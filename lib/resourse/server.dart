@@ -2,18 +2,19 @@ import 'package:appwrite/appwrite.dart';
 import 'package:dio/dio.dart';
 
 class Server {
-  static const endpoint = '192.168.1.102/v1';
+  static const endpoint = 'https://192.168.1.102:80/v1';
   static const projectid = '60cc0aeac3130';
   static const collectionid = '60cc0e09f05e6';
-  final Client client = Client();
 
-  Future<String> signup(String email, String password, String name) async {
+  static Future<String> signup(
+      String email, String password, String name) async {
     String uid = '0';
     String errorMessage;
-
+    Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint
-            .setProject(projectid) // Your project ID
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
         ;
 
     print(client.toString());
@@ -49,11 +50,13 @@ class Server {
     return uid;
   }
 
-  signin(String email, String password) async {
+  static signin(String email, String password) async {
     String errorMessage;
+    final Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint
-            .setProject(projectid) // Your project ID
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
         ;
 
     Account account = Account(client);
@@ -91,7 +94,7 @@ class Server {
     }
   }
 
-  Future<bool> isSignedIn() async {
+  static Future<bool> isSignedIn() async {
     try {
       return await getSession();
     } catch (e) {
@@ -99,10 +102,12 @@ class Server {
     }
   }
 
-  Future<bool> getSession() async {
+  static Future<bool> getSession() async {
+    final Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint
-            .setProject(projectid) // Your project ID
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
         ;
     Account account = Account(client);
     try {

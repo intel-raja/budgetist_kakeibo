@@ -1,12 +1,11 @@
 import 'package:budgetist_kakeibo/resourse/server.dart';
 
 class UserRepo {
-  final Server server;
-  UserRepo(this.server);
+  UserRepo();
 
   Future<String> usersignup(String email, String password, String name) async {
     try {
-      return await server.signup(email, password, name);
+      return await Server.signup(email, password, name);
     } catch (e) {
       return e.toString();
     }
@@ -14,7 +13,7 @@ class UserRepo {
 
   Future<String> usersignin(String email, String password) async {
     try {
-      return await server.signin(email, password);
+      return await Server.signin(email, password);
     } catch (e) {
       return e.toString();
     }
@@ -22,7 +21,7 @@ class UserRepo {
 
   Future<bool> userissingedin() async {
     try {
-      return await server.isSignedIn();
+      return await Server.isSignedIn();
     } catch (e) {
       print(e);
       return false;
