@@ -15,7 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
-    if (event is Signedin) {
+    if (event is LoginIt) {
       final bool isSignedIn = await userRepo.userissingedin();
       if (isSignedIn) {
         yield Auth();

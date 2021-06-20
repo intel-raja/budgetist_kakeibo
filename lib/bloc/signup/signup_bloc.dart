@@ -27,9 +27,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           event.password,
           event.name,
         );
-        authBloc.add(Signedin());
-
-        yield SignupInitial();
+        authBloc.add(LoginIt());
       } catch (e) {
         yield SignupFailure(error: e.toString());
       }

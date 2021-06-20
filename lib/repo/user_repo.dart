@@ -7,7 +7,7 @@ class UserRepo {
     try {
       return await Server.signup(email, password, name);
     } catch (e) {
-      return e.toString();
+      return Future.error(e.toString());
     }
   }
 
@@ -15,7 +15,7 @@ class UserRepo {
     try {
       return await Server.signin(email, password);
     } catch (e) {
-      return e.toString();
+      return Future.error(e.toString());
     }
   }
 
@@ -24,7 +24,7 @@ class UserRepo {
       return await Server.isSignedIn();
     } catch (e) {
       print(e);
-      return false;
+      return Future.error(e.toString());
     }
   }
 }

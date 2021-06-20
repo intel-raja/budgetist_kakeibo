@@ -26,7 +26,7 @@ dependencies:
   
   appwrite: ^0.6.4
   cupertino_icons: ^1.0.2
-  dio: ^4.0.0
+  
   equatable: ^2.0.3
   flutter_bloc: ^7.0.1
 
