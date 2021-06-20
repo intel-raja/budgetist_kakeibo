@@ -23,12 +23,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
   appwrite: ^0.6.4
   cupertino_icons: ^1.0.2
-  
   equatable: ^2.0.3
   flutter_bloc: ^7.0.1
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +55,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: FuturaMdBT
+      fonts:
+        - asset: assets/fonts/FuturaMdBT-Medium.ttf
+          weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:
