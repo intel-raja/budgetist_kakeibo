@@ -9,10 +9,8 @@ part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  UserRepo userRepo;
   AuthBloc authBloc;
-  SignupBloc({required this.userRepo, required this.authBloc})
-      : super(SignupInitial());
+  SignupBloc({required this.authBloc}) : super(SignupInitial());
 
   @override
   Stream<SignupState> mapEventToState(
@@ -22,7 +20,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       yield SignupLoading();
 
       try {
-        await userRepo.usersignup(
+        await UserRepo.usersignup(
           event.email,
           event.password,
           event.name,
