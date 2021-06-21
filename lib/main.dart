@@ -1,5 +1,5 @@
-import 'package:budgetist_kakeibo/screen/demo.dart';
-import 'package:budgetist_kakeibo/screen/signinscreens.dart';
+import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
+import 'package:budgetist_kakeibo/screen/homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: Scaffold(
-        body: DemoHome(),
+        body: HomepageWidget(),
       ),
     );
   }
