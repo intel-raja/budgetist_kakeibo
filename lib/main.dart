@@ -1,5 +1,6 @@
 import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
-import 'package:budgetist_kakeibo/screen/homepage.dart';
+import 'package:budgetist_kakeibo/screen/signupscreen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,10 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.indigo,
       ),
       home: Scaffold(
-        body: HomepageWidget(),
+        body: SigninScreen(),
       ),
     );
   }

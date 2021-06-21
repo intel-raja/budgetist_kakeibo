@@ -1,215 +1,350 @@
+import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:string_validator/string_validator.dart';
 
-class SignupWidget extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   @override
-  _SignupWidgetState createState() => _SignupWidgetState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _SignupWidgetState extends State<SignupWidget> {
+class _SignupScreenState extends State<SignupScreen> {
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController passwordcont = TextEditingController();
+  TextEditingController emailcont = TextEditingController();
+  bool showpassword = true;
+
+  TextEditingController namecont = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator SignupWidget - FRAME
-
-    return Container(
-        width: 375,
-        height: 812,
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(255, 255, 255, 1),
-        ),
-        child: Stack(children: <Widget>[
-          Positioned(
-              top: 756,
-              left: 255,
-              child: Text(
-                'Sign in',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 760,
-              left: 45,
-              child: Text(
-                'Already have a account?',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 576,
-              left: 101,
-              child: Container(
-                  width: 174,
-                  height: 159,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
+    // Figma Flutter Generator SignupScreen - FRAME
+    Size size = MediaQuery.of(context).size;
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height: size.height, //815
+          width: size.width, //375
+          decoration: BoxDecoration(
+            color: Color.fromRGBO(255, 255, 255, 1),
+          ),
+          child: Form(
+            key: _formKey,
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: size.height - 70,
+                  left: 250,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SigninScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Sign in',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Color.fromRGBO(101, 0, 252, 1),
+                        fontFamily: 'Futura Md BT',
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: size.height - 56,
+                  left: 50,
+                  child: Text(
+                    'Already have a account?',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(101, 0, 252, 1),
+                      fontFamily: 'Futura Md BT',
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: .7 * size.height,
+                  left: 70,
+                  child: Container(
+                    width: size.width - 140,
+                    height: .20 * size.height,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
                         image: AssetImage('assets/images/Pic.png'),
-                        fit: BoxFit.fitWidth),
-                  ))),
-          Positioned(
-              top: 475,
-              left: 119,
-              child: Container(
-                  width: 137,
-                  height: 45,
-                  child: Stack(children: <Widget>[
-                    Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Container(
-                            width: 137,
-                            height: 45,
-                            decoration: BoxDecoration(
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: .60 * size.height,
+                  left: (size.width / 2) - 70,
+                  child: Container(
+                    width: 140,
+                    height: 40,
+                    child: Container(
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child: InkWell(
+                              onTap: () {
+                                if (_formKey.currentState!.validate()) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text('Processing Data')));
+                                }
+                              },
+                              child: Container(
+                                width: 140,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                  ),
+                                  color: Color.fromRGBO(101, 0, 252, 1),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    'Sign up',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(255, 255, 255, 1),
+                                      fontFamily: 'Futura Md BT',
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: .54 * size.height,
+                  left: size.width - 150,
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        showpassword = showpassword == true ? false : true;
+                      });
+                    },
+                    child: Text(
+                      'show password',
+                      style: TextStyle(
+                        color: Color.fromRGBO(101, 0, 252, 1),
+                        fontFamily: 'Futura Md BT',
+                        fontSize: 15,
+                        height: 1,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                    top: .49 * size.height,
+                    left: 30,
+                    child: Container(
+                        width: size.width - 60,
+                        height: 45,
+                        child: TextFormField(
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            } else {
+                              bool strongPassword = isLength(value, 6, 20);
+                              if (strongPassword == false) {
+                                return 'password length between 6 to 20';
+                              }
+                            }
+                            return null;
+                          },
+                          obscureText: showpassword,
+                          //  autocorrect: false,
+                          style: TextStyle(fontSize: 20),
+                          controller: passwordcont,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(15),
                                 topRight: Radius.circular(15),
                                 bottomLeft: Radius.circular(15),
                                 bottomRight: Radius.circular(15),
                               ),
-                              color: Color.fromRGBO(101, 0, 252, 1),
-                            ))),
-                    Positioned(
-                        top: 11,
-                        left: 40,
-                        child: Text(
-                          'Sign up',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: 'Futura Md BT',
-                              fontSize: 18,
-                              letterSpacing:
-                                  0 /*percentages not used in flutter. defaulting to zero*/,
-                              fontWeight: FontWeight.normal,
-                              height: 1),
-                        )),
-                  ]))),
-          Positioned(
-              top: 391,
-              left: 27,
-              child: Container(
-                  width: 321,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15),
+                            ),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                            color: Color.fromRGBO(0, 0, 0, 1),
+                            width: 2,
+                          ),
+                        ))),
+                Positioned(
+                    top: .46 * size.height,
+                    left: 27,
+                    child: Text(
+                      'Password',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Color.fromRGBO(101, 0, 252, 1),
+                          fontFamily: 'Futura Md BT',
+                          fontSize: 18,
+                          letterSpacing:
+                              0 /*percentages not used in flutter. defaulting to zero*/,
+                          fontWeight: FontWeight.normal,
+                          height: 1),
+                    )),
+                Positioned(
+                    top: .36 * size.height,
+                    left: 30,
+                    child: Container(
+                        width: size.width - 60,
+                        height: 45,
+                        child: TextFormField(
+                          controller: emailcont,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            } else {
+                              bool emailFormat = isEmail(value);
+                              if (emailFormat == false) {
+                                return 'please enter vaild email id';
+                              }
+                            }
+                            return null;
+                          },
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
+                            ),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                            color: Color.fromRGBO(0, 0, 0, 1),
+                            width: 2,
+                          ),
+                        ))),
+                Positioned(
+                    top: .33 * size.height,
+                    left: 30,
+                    child: Text(
+                      'Email-ID',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Color.fromRGBO(101, 0, 252, 1),
+                        fontFamily: 'Futura Md BT',
+                        fontSize: 18,
+                      ),
+                    )),
+                Positioned(
+                    top: 0.23 * size.height,
+                    left: 30,
+                    child: Container(
+                        width: size.width - 60,
+                        height: 45,
+                        child: TextFormField(
+                          controller: namecont,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter some text';
+                            } else {
+                              bool nameFormat = isLength(value, 3, 25);
+                              if (nameFormat == false) {
+                                return 'please enter name with more than 3 letters';
+                              }
+                            }
+                            return null;
+                          },
+                          style: TextStyle(fontSize: 20),
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
+                            ),
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          border: Border.all(
+                            color: Color.fromRGBO(0, 0, 0, 1),
+                            width: 2,
+                          ),
+                        ))),
+                Positioned(
+                  top: .2 * size.height,
+                  left: 30,
+                  child: Text(
+                    'Name',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Color.fromRGBO(101, 0, 252, 1),
+                        fontFamily: 'Futura Md BT',
+                        fontSize: 18,
+                        letterSpacing:
+                            0 /*percentages not used in flutter. defaulting to zero*/,
+                        fontWeight: FontWeight.normal,
+                        height: 1),
+                  ),
+                ),
+                Positioned(
+                  top: 72,
+                  left: 30,
+                  child: Text(
+                    'Sign up',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(101, 0, 252, 1),
+                      fontFamily: 'Futura Md BT',
+                      fontSize: 30,
                     ),
-                    border: Border.all(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      width: 2,
-                    ),
-                  ))),
-          Positioned(
-              top: 353,
-              left: 27,
-              child: Text(
-                'Password',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 292,
-              left: 27,
-              child: Container(
-                  width: 321,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15),
-                    ),
-                    border: Border.all(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      width: 2,
-                    ),
-                  ))),
-          Positioned(
-              top: 254,
-              left: 27,
-              child: Text(
-                'Email-ID',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 193,
-              left: 27,
-              child: Container(
-                  width: 321,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                      bottomLeft: Radius.circular(15),
-                      bottomRight: Radius.circular(15),
-                    ),
-                    border: Border.all(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      width: 2,
-                    ),
-                  ))),
-          Positioned(
-              top: 155,
-              left: 27,
-              child: Text(
-                'Name',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 72,
-              left: 27,
-              child: Text(
-                'Sign up',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 30,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-        ]));
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
