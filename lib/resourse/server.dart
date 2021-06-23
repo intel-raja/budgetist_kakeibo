@@ -21,7 +21,11 @@ class Server {
 
       await signin(email, password);
     } on AppwriteException catch (error) {
-      return Future.error(error.message.toString());
+      if (error.code == null) {
+        return Future.error('no internet connection');
+      } else {
+        return Future.error(error.message.toString());
+      }
     }
 
     return 'success';
@@ -36,26 +40,22 @@ class Server {
         ;
 
     Account account = Account(client);
-
     try {
-      Response<dynamic> result = await account.createSession(
+      await account.createSession(
         email: email,
         password: password,
       );
 
-      if (result.statusCode == 201) {
-        return true;
-      } else {
-        return false;
-      }
+      return 'success';
     } on AppwriteException catch (error) {
       return Future.error(error.message.toString());
     }
   }
 
   static Future<bool> isSignedIn() async {
+    final result = await getSession();
+
     try {
-      final result = await getSession();
       // ignore: unnecessary_null_comparison
       if (result != null) {
         return true;
@@ -70,6 +70,7 @@ class Server {
 
   static Future<String> getSession() async {
     String? uid;
+
     final Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint

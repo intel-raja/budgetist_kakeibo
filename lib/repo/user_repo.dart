@@ -8,6 +8,7 @@ class UserRepo {
     try {
       return await Server.signup(email, password, name);
     } catch (e) {
+      print('userrepo:$e');
       return Future.error(e.toString());
     }
   }

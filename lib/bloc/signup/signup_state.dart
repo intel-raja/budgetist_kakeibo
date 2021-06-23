@@ -11,6 +11,8 @@ class SignupInitial extends SignupState {}
 
 class SignupLoading extends SignupState {}
 
+class SignupFinised extends SignupState {}
+
 class SignupFailure extends SignupState {
   final String error;
 

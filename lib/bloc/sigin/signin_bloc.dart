@@ -11,7 +11,7 @@ part 'signin_state.dart';
 class SigninBloc extends Bloc<SigninEvent, SigninState> {
   final AuthBloc authBloc;
 
-  SigninBloc(this.authBloc) : super(SigninInitial());
+  SigninBloc({required this.authBloc}) : super(SigninInitial());
 
   @override
   Stream<SigninState> mapEventToState(
@@ -26,6 +26,7 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
           event.password,
         );
         authBloc.add(LoginIt());
+        yield SigninFinised();
       } catch (e) {
         yield SigninFailure(error: e.toString());
       }

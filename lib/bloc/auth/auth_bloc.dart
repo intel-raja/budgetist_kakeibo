@@ -8,17 +8,30 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(AuthStarted());
+  AuthBloc() : super(Authinit());
 
   @override
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
+    if (event is AppStarted) {
+      yield Authinit();
+      final bool isSignedIn = await UserRepo.userissingedin();
+      if (isSignedIn) {
+        print('auth');
+        yield Auth();
+      } else {
+        print('UnAuth');
+        yield UnAuth();
+      }
+    }
     if (event is LoginIt) {
       final bool isSignedIn = await UserRepo.userissingedin();
       if (isSignedIn) {
+        print('auth');
         yield Auth();
       } else {
+        print('UnAuth');
         yield UnAuth();
       }
     }
