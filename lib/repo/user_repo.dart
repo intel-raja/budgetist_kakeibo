@@ -21,12 +21,12 @@ class UserRepo {
     }
   }
 
-  static Future<bool> userissingedin() async {
+  static Future<bool> userissignedin() async {
     try {
       return await Server.isSignedIn();
     } catch (e) {
-      print(e);
-      return Future.error(e.toString());
+      print('userrepo:$e');
+      return false;
     }
   }
 }

@@ -9,7 +9,7 @@ part 'signup_event.dart';
 part 'signup_state.dart';
 
 class SignupBloc extends Bloc<SignupEvent, SignupState> {
-  AuthBloc authBloc;
+  final AuthBloc authBloc;
   SignupBloc({required this.authBloc}) : super(SignupInitial());
 
   @override
@@ -25,6 +25,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
           event.password,
           event.name,
         );
+        print('edit');
         authBloc.add(LoginIt());
         yield SignupFinised();
       } catch (e) {

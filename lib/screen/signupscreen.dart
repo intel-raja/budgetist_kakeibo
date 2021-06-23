@@ -14,12 +14,13 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  AuthBloc authBloc = AuthBloc();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => SignupBloc(authBloc: authBloc),
+      body: BlocProvider<SignupBloc>(
+        create: (context) => SignupBloc(
+          authBloc: BlocProvider.of<AuthBloc>(context),
+        ),
         child: SignupScreen(),
       ),
     );
@@ -70,6 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
+                duration: Duration(minutes: 5),
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -82,6 +84,7 @@ class _SignupScreenState extends State<SignupScreen> {
             );
         }
         if (state is SignupFinised) {
+          Navigator.pushNamed(context, Routes.home);
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(

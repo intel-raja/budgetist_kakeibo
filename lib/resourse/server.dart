@@ -48,7 +48,11 @@ class Server {
 
       return 'success';
     } on AppwriteException catch (error) {
-      return Future.error(error.message.toString());
+      if (error.code == null) {
+        return Future.error('no internet connection');
+      } else {
+        return Future.error(error.message.toString());
+      }
     }
   }
 

@@ -13,7 +13,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     BlocProvider<AuthBloc>(
-      create: (context) => AuthBloc()..add(AppStarted()),
+      create: (context) => AuthBloc()..add(LoginIt()),
       child: MyApp(),
     ),
   );
@@ -33,10 +33,13 @@ class MyApp extends StatelessWidget {
           return BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
               if (state is Authinit) {
+                print('loading main');
                 return LodingScreen();
               } else if (state is Auth) {
+                print('auth main');
                 return HomepageWidget();
               } else {
+                print('unauth main');
                 return Signin();
               }
             },

@@ -14,19 +14,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
-    if (event is AppStarted) {
-      yield Authinit();
-      final bool isSignedIn = await UserRepo.userissingedin();
-      if (isSignedIn) {
-        print('auth');
-        yield Auth();
-      } else {
-        print('UnAuth');
-        yield UnAuth();
-      }
-    }
+    // if (event is AppStarted) {
+    //   yield Authinit();
+    //   final bool isSignedIn = await UserRepo.userissignedin();
+    //   if (isSignedIn) {
+    //     print('auth');
+    //     yield Auth();
+    //   } else {
+    //     print('UnAuth');
+    //     yield UnAuth();
+    //   }
+    // }
     if (event is LoginIt) {
-      final bool isSignedIn = await UserRepo.userissingedin();
+      final bool isSignedIn = await UserRepo.userissignedin();
       if (isSignedIn) {
         print('auth');
         yield Auth();

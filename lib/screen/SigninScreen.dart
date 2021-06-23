@@ -16,12 +16,12 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
-  AuthBloc authBloc = AuthBloc();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => SigninBloc(authBloc: authBloc),
+      body: BlocProvider<SigninBloc>(
+        create: (context) =>
+            SigninBloc(authBloc: BlocProvider.of<AuthBloc>(context)),
         child: SigninScreen(),
       ),
     );
@@ -69,6 +69,7 @@ class _SigninScreenState extends State<SigninScreen> {
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(
+                duration: Duration(minutes: 5),
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -81,6 +82,7 @@ class _SigninScreenState extends State<SigninScreen> {
             );
         }
         if (state is SigninFinised) {
+          Navigator.pushNamed(context, Routes.home);
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
