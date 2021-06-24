@@ -1,8 +1,11 @@
 import 'package:budgetist_kakeibo/bloc/auth/auth_bloc.dart';
+import 'package:budgetist_kakeibo/models/user.dart';
 import 'package:budgetist_kakeibo/routes.dart';
 import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
-import 'package:budgetist_kakeibo/screen/homepage.dart';
+import 'package:budgetist_kakeibo/screen/remainderscreen.dart';
+import 'package:budgetist_kakeibo/screen/walletscreen.dart';
 import 'package:budgetist_kakeibo/screen/lodingscreen.dart';
+import 'package:budgetist_kakeibo/screen/profilescreen.dart';
 
 import 'package:budgetist_kakeibo/screen/signupscreen.dart';
 
@@ -25,10 +28,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Budgetist-kakeibo',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primaryColor: Color.fromRGBO(101, 0, 252, 1),
       ),
       routes: {
-        Routes.initial: (context) => Signup(),
+        // Routes.initial: (content) => ProfileScreen(),
         Routes.initial: (content) {
           return BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
                 return LodingScreen();
               } else if (state is Auth) {
                 print('auth main');
-                return HomepageWidget();
+                return WalletScreen();
               } else {
                 print('unauth main');
                 return Signin();
@@ -47,7 +50,9 @@ class MyApp extends StatelessWidget {
         },
         Routes.signin: (content) => Signin(),
         Routes.signup: (content) => Signup(),
-        Routes.home: (content) => HomepageWidget(),
+        Routes.home: (content) => WalletScreen(),
+        Routes.profile: (content) => ProfileScreen(),
+        Routes.remainder: (content) => RemainderScreen(),
       },
     );
   }

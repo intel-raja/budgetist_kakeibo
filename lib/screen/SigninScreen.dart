@@ -82,7 +82,7 @@ class _SigninScreenState extends State<SigninScreen> {
             );
         }
         if (state is SigninFinised) {
-          Navigator.pushNamed(context, Routes.home);
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(

@@ -1,7 +1,10 @@
+import 'package:budgetist_kakeibo/models/user.dart';
+import 'package:budgetist_kakeibo/repo/user_repo.dart';
+import 'package:budgetist_kakeibo/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
@@ -9,127 +12,160 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     // Figma Flutter Generator ProfileScreen - FRAME
 
-    return Container(
-        width: 375,
-        height: 812,
+    return Scaffold(
+      body: Container(
+        width: size.width, //375
+        height: size.height, //812
         decoration: BoxDecoration(
           color: Color.fromRGBO(255, 255, 255, 1),
         ),
-        child: Stack(children: <Widget>[
-          Positioned(top: 123, left: 0, child: null),
-          Positioned(
-              top: 56,
-              left: 33,
-              child: Text(
-                'Username',
-                textAlign: TextAlign.left,
-                style: TextStyle(
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: 125,
+              left: 0,
+              child: Container(
+                width: size.width,
+                height: size.height - 125,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  ),
+                  color: Color.fromRGBO(101, 0, 252, 1),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 60,
+              left: 30,
+              child: Container(
+                width: size.width - 100,
+                child: Text(
+                  User.name,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
                     color: Color.fromRGBO(101, 0, 252, 1),
                     fontFamily: 'Futura Md BT',
                     fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 63,
-              left: 245,
-              child: Text(
-                'Edit profile',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(101, 0, 252, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 18,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 219,
-              left: 38,
-              child: Text(
-                'Categories',
-                textAlign: TextAlign.left,
-                style: TextStyle(
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+                top: 220,
+                left: 30,
+                child: Text(
+                  'Categories',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
                     color: Color.fromRGBO(255, 255, 255, 1),
                     fontFamily: 'Futura Md BT',
                     fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
                     fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 161,
-              left: 38,
+                  ),
+                )),
+            Positioned(
+              top: 160,
+              left: 30,
               child: Text(
-                'Manage profiles',
+                'Manage Teams',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 277,
-              left: 38,
-              child: Text(
-                'Settings',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 335,
-              left: 38,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  fontFamily: 'Futura Md BT',
+                  fontSize: 24,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ),
+            Positioned(
+                top: 280,
+                left: 20,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.remainder);
+                  },
+                  child: Text(
+                    'Remainder',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Futura Md BT',
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                )),
+            Positioned(
+              top: 340,
+              left: 30,
               child: Text(
                 'About',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-              top: 393,
-              left: 38,
-              child: Text(
-                'Logout',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontFamily: 'Futura Md BT',
-                    fontSize: 24,
-                    letterSpacing:
-                        0 /*percentages not used in flutter. defaulting to zero*/,
-                    fontWeight: FontWeight.normal,
-                    height: 1),
-              )),
-          Positioned(
-            top: 67,
-            left: 225,
-            child: SvgPicture.asset('assets/images/vector.svg',
-                semanticsLabel: 'vector'),
-          ),
-        ]));
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  fontFamily: 'Futura Md BT',
+                  fontSize: 24,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ),
+            Positioned(
+                top: 400,
+                left: 30,
+                child: TextButton(
+                  onPressed: () {
+                    try {
+                      UserRepo.userdeleteSession();
+                      Navigator.popAndPushNamed(context, Routes.signin);
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          SnackBar(
+                            content: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('bye, see you later'),
+                                Icon(Icons.logout)
+                              ],
+                            ),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                    } catch (e) {
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          SnackBar(
+                            content: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [Text(e.toString()), Icon(Icons.error)],
+                            ),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                    }
+                  },
+                  child: Text(
+                    'Logout',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Futura Md BT',
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                )),
+          ],
+        ),
+      ),
+    );
   }
 }

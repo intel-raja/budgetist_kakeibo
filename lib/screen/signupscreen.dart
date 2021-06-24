@@ -84,7 +84,7 @@ class _SignupScreenState extends State<SignupScreen> {
             );
         }
         if (state is SignupFinised) {
-          Navigator.pushNamed(context, Routes.home);
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
@@ -173,7 +173,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                       SignupPressed(
                                         email: emailcont.text,
                                         password: passwordcont.text,
-                                        name: emailcont.text,
+                                        name: namecont.text,
                                       ),
                                     );
                                   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LodingScreen extends StatelessWidget {
   const LodingScreen({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class LodingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(
+        child: SpinKitPouringHourglass(
           color: Color.fromRGBO(101, 0, 252, 1),
         ),
       ),

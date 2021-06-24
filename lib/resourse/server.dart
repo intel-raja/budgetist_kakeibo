@@ -1,4 +1,5 @@
 import 'package:appwrite/appwrite.dart';
+import 'package:budgetist_kakeibo/models/user.dart';
 
 class Server {
   static const endpoint = 'https://192.168.1.102:80/v1';
@@ -73,7 +74,7 @@ class Server {
   }
 
   static Future<String> getSession() async {
-    String? uid;
+    String? name;
 
     final Client client = Client();
     client
@@ -85,14 +86,61 @@ class Server {
     try {
       Response<dynamic> result = await account.get();
       if (result.statusCode == 200) {
-        uid = result.data['\$id'].toString();
-        print(uid);
-        return uid;
+        print('get session: $result');
+        name = result.data['name'].toString();
+        print(name);
+        User.name = name;
+        return name;
       } else {
-        return uid!;
+        return name!;
       }
     } on AppwriteException catch (error) {
       return Future.error(error.message.toString());
+    }
+  }
+
+  static Future<Response> getdocument(String month) async {
+    final Client client = Client();
+    client
+            .setEndpoint(endpoint) // Your API Endpoint
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
+        ;
+    Database db = Database(client);
+    try {
+      Response<dynamic> result = await db.listDocuments(
+        collectionId: collectionid,
+        filters: ['month=$month'],
+        orderField: 'time',
+        orderType: OrderType.asc,
+      );
+      return result;
+    } on AppwriteException catch (error) {
+      if (error.code == null) {
+        return Future.error('no internet connection');
+      } else {
+        return Future.error(error.message.toString());
+      }
+    }
+  }
+
+  static Future<String> deleteSession() async {
+    final Client client = Client();
+    client
+            .setEndpoint(endpoint) // Your API Endpoint
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
+        ;
+    Account account = Account(client);
+    try {
+      await account.deleteSessions();
+      return 'sucess';
+    } on AppwriteException catch (error) {
+      if (error.code == null) {
+        return Future.error('no internet connection');
+      } else {
+        return Future.error(error.message.toString());
+      }
     }
   }
 }
