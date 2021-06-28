@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:appwrite/appwrite.dart';
 import 'package:budgetist_kakeibo/models/user.dart';
 
@@ -23,7 +25,7 @@ class Server {
       await signin(email, password);
     } on AppwriteException catch (error) {
       if (error.code == null) {
-        return Future.error('no internet connection');
+        return Future.error('Please Connect Internet');
       } else {
         return Future.error(error.message.toString());
       }
@@ -50,7 +52,7 @@ class Server {
       return 'success';
     } on AppwriteException catch (error) {
       if (error.code == null) {
-        return Future.error('no internet connection');
+        return Future.error('Please Connect Internet');
       } else {
         return Future.error(error.message.toString());
       }
@@ -75,6 +77,7 @@ class Server {
 
   static Future<String> getSession() async {
     String? name;
+    String id;
 
     final Client client = Client();
     client
@@ -88,8 +91,12 @@ class Server {
       if (result.statusCode == 200) {
         print('get session: $result');
         name = result.data['name'].toString();
+        id = result.data['\$id'].toString();
+        print(id);
+        print(result.data);
         print(name);
         User.name = name;
+        User.id = id;
         return name;
       } else {
         return name!;
@@ -117,10 +124,35 @@ class Server {
       return result;
     } on AppwriteException catch (error) {
       if (error.code == null) {
-        return Future.error('no internet connection');
+        return Future.error('Please Connect Internet');
       } else {
         return Future.error(error.message.toString());
       }
+    }
+  }
+
+  static Future<bool> getteam() async {
+    final Client client = Client();
+    client
+            .setEndpoint(endpoint) // Your API Endpoint
+            .setProject(projectid) //
+            .setSelfSigned() // Your project ID
+        ;
+    Teams teams = Teams(client);
+
+    try {
+      final result = await teams.list();
+
+      final map = json.decode(result.toString());
+      List<dynamic> data = map["teams"];
+      if (data.length != 0) {
+        User.teamid = data[0]['\$id'];
+        print(data[0]['\$id']);
+        return true;
+      }
+      return false;
+    } on AppwriteException catch (e) {
+      return Future.error('team error :${e.message.toString()}');
     }
   }
 
@@ -137,7 +169,41 @@ class Server {
       return 'sucess';
     } on AppwriteException catch (error) {
       if (error.code == null) {
-        return Future.error('no internet connection');
+        return Future.error('Please Connect Internet');
+      } else {
+        return Future.error(error.message.toString());
+      }
+    }
+  }
+
+  static Future<String> createdocument(String name, double amount, int itemNo,
+      int month, String createdtime, String id) async {
+    final Client client = Client();
+    client
+            .setEndpoint(endpoint) // Your API Endpoint
+            .setProject(projectid)
+            .setSelfSigned() // Your project ID
+        ;
+
+    Database db = Database(client);
+
+    try {
+      Response<dynamic> result = await db.createDocument(
+        collectionId: collectionid,
+        data: {
+          'name': name,
+          'amount': amount,
+          'itemNo': itemNo,
+          'month': month,
+          'time': createdtime,
+        },
+        read: [id],
+      );
+      print(result.data);
+      return result.toString();
+    } on AppwriteException catch (error) {
+      if (error.code == null) {
+        return Future.error('Please Connect Internet');
       } else {
         return Future.error(error.message.toString());
       }

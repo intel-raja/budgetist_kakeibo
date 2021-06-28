@@ -58,10 +58,41 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             Positioned(
+              top: .65 * size.height,
+              left: 30,
+              child: Container(
+                width: size.width - 60,
+                height: .33 * size.height,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/money.png'),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
                 top: 220,
                 left: 30,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Categories',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: 'Futura Md BT',
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                )),
+            Positioned(
+              top: 160,
+              left: 30,
+              child: TextButton(
+                onPressed: () {},
                 child: Text(
-                  'Categories',
+                  'Manage Teams',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     color: Color.fromRGBO(255, 255, 255, 1),
@@ -69,27 +100,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     fontSize: 24,
                     fontWeight: FontWeight.normal,
                   ),
-                )),
-            Positioned(
-              top: 160,
-              left: 30,
-              child: Text(
-                'Manage Teams',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                  fontFamily: 'Futura Md BT',
-                  fontSize: 24,
-                  fontWeight: FontWeight.normal,
                 ),
               ),
             ),
             Positioned(
                 top: 280,
-                left: 20,
+                left: 30,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.remainder);
+                   
                   },
                   child: Text(
                     'Remainder',
@@ -105,64 +124,68 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Positioned(
               top: 340,
               left: 30,
-              child: Text(
-                'About',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                  fontFamily: 'Futura Md BT',
-                  fontSize: 24,
-                  fontWeight: FontWeight.normal,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'About',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    fontFamily: 'Futura Md BT',
+                    fontSize: 24,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
               ),
             ),
             Positioned(
-                top: 400,
-                left: 30,
-                child: TextButton(
-                  onPressed: () {
-                    try {
-                      UserRepo.userdeleteSession();
-                      Navigator.popAndPushNamed(context, Routes.signin);
-                      ScaffoldMessenger.of(context)
-                        ..hideCurrentSnackBar()
-                        ..showSnackBar(
-                          SnackBar(
-                            content: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('bye, see you later'),
-                                Icon(Icons.logout)
-                              ],
-                            ),
-                            backgroundColor: Colors.green,
+              top: 400,
+              left: 30,
+              child: TextButton(
+                onPressed: () {
+                  try {
+                    UserRepo.userdeleteSession();
+                    Navigator.popAndPushNamed(context, Routes.signin);
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(
+                        SnackBar(
+                          content: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('bye, see you later'),
+                              Icon(Icons.logout)
+                            ],
                           ),
-                        );
-                    } catch (e) {
-                      ScaffoldMessenger.of(context)
-                        ..hideCurrentSnackBar()
-                        ..showSnackBar(
-                          SnackBar(
-                            content: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [Text(e.toString()), Icon(Icons.error)],
-                            ),
-                            backgroundColor: Colors.red,
+                          backgroundColor: Colors.green,
+                        ),
+                      );
+                  } catch (e) {
+                    ScaffoldMessenger.of(context)
+                      ..hideCurrentSnackBar()
+                      ..showSnackBar(
+                        SnackBar(
+                          content: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [Text(e.toString()), Icon(Icons.error)],
                           ),
-                        );
-                    }
-                  },
-                  child: Text(
-                    'Logout',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      fontFamily: 'Futura Md BT',
-                      fontSize: 24,
-                      fontWeight: FontWeight.normal,
-                    ),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                  }
+                },
+                child: Text(
+                  'Logout',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    fontFamily: 'Futura Md BT',
+                    fontSize: 24,
+                    fontWeight: FontWeight.normal,
                   ),
-                )),
+                ),
+              ),
+            ),
           ],
         ),
       ),

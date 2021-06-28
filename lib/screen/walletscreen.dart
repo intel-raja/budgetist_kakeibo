@@ -10,6 +10,12 @@ class WalletScreen extends StatefulWidget {
 
 class _WalletScreenState extends State<WalletScreen> {
   @override
+  void initState() {
+    super.initState();
+    print('wallet screen');
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // Figma Flutter Generator WalletScreen - FRAME
@@ -17,7 +23,9 @@ class _WalletScreenState extends State<WalletScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, Routes.items);
+        },
         backgroundColor: Colors.white,
         child: Icon(
           Icons.add,

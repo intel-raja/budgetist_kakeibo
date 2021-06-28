@@ -1,9 +1,6 @@
-import 'package:appwrite/appwrite.dart';
 import 'package:budgetist_kakeibo/resourse/server.dart';
 
 class UserRepo {
-  UserRepo();
-
   static Future<String> usersignup(
       String email, String password, String name) async {
     try {
@@ -28,14 +25,6 @@ class UserRepo {
     } catch (e) {
       print('userrepo:$e');
       return false;
-    }
-  }
-
-  static Future<Response> usercreatedoc(String month) async {
-    try {
-      return await Server.getdocument(month);
-    } catch (e) {
-      return Future.error(e.toString());
     }
   }
 

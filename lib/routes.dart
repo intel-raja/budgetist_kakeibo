@@ -4,5 +4,6 @@ class Routes {
   static final signup = '/signup';
   static final home = '/home';
   static final profile = '/profile';
-  static final remainder = '/remainder';
+
+  static final items = '/items';
 }

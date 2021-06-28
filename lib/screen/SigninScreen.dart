@@ -1,5 +1,5 @@
 import 'package:budgetist_kakeibo/bloc/auth/auth_bloc.dart';
-import 'package:budgetist_kakeibo/bloc/sigin/signin_bloc.dart';
+import 'package:budgetist_kakeibo/bloc/signin/signin_bloc.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

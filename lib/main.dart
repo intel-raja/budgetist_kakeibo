@@ -1,8 +1,7 @@
 import 'package:budgetist_kakeibo/bloc/auth/auth_bloc.dart';
-import 'package:budgetist_kakeibo/models/user.dart';
 import 'package:budgetist_kakeibo/routes.dart';
 import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
-import 'package:budgetist_kakeibo/screen/remainderscreen.dart';
+import 'package:budgetist_kakeibo/screen/itemscreen.dart';
 import 'package:budgetist_kakeibo/screen/walletscreen.dart';
 import 'package:budgetist_kakeibo/screen/lodingscreen.dart';
 import 'package:budgetist_kakeibo/screen/profilescreen.dart';
@@ -52,7 +51,8 @@ class MyApp extends StatelessWidget {
         Routes.signup: (content) => Signup(),
         Routes.home: (content) => WalletScreen(),
         Routes.profile: (content) => ProfileScreen(),
-        Routes.remainder: (content) => RemainderScreen(),
+
+        Routes.items: (content) => Item(),
       },
     );
   }
