@@ -2,8 +2,9 @@ import 'package:budgetist_kakeibo/bloc/auth/auth_bloc.dart';
 import 'package:budgetist_kakeibo/routes.dart';
 import 'package:budgetist_kakeibo/screen/SigninScreen.dart';
 import 'package:budgetist_kakeibo/screen/itemscreen.dart';
-import 'package:budgetist_kakeibo/screen/walletscreen.dart';
-import 'package:budgetist_kakeibo/screen/lodingscreen.dart';
+import 'package:budgetist_kakeibo/screen/HomePage.dart';
+
+import 'package:budgetist_kakeibo/screen/loadingscreen.dart';
 import 'package:budgetist_kakeibo/screen/profilescreen.dart';
 
 import 'package:budgetist_kakeibo/screen/signupscreen.dart';
@@ -36,10 +37,10 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               if (state is Authinit) {
                 print('loading main');
-                return LodingScreen();
+                return LoadingScreen();
               } else if (state is Auth) {
                 print('auth main');
-                return WalletScreen();
+                return Homepage();
               } else {
                 print('unauth main');
                 return Signin();
@@ -49,10 +50,11 @@ class MyApp extends StatelessWidget {
         },
         Routes.signin: (content) => Signin(),
         Routes.signup: (content) => Signup(),
-        Routes.home: (content) => WalletScreen(),
+        Routes.home: (content) => Homepage(),
         Routes.profile: (content) => ProfileScreen(),
 
         Routes.items: (content) => Item(),
+        Routes.loading: (content) => LoadingScreen(),
       },
     );
   }

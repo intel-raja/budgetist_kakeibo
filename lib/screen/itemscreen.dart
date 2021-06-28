@@ -68,22 +68,7 @@ class _ItemScreenState extends State<ItemScreen> {
         }
 
         if (state is ItemLoading) {
-          Navigator.pop(context);
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                duration: Duration(minutes: 5),
-                content: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('data processing'),
-                    Icon(Icons.hourglass_top)
-                  ],
-                ),
-                backgroundColor: Colors.amber,
-              ),
-            );
+          Navigator.popAndPushNamed(context, Routes.loading);
         }
         if (state is ItemFinised) {
           Navigator.pushNamedAndRemoveUntil(context, Routes.home, (_) => false);
@@ -103,6 +88,10 @@ class _ItemScreenState extends State<ItemScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: DropdownButton(
+            icon: Icon(
+              Icons.arrow_drop_down_outlined,
+              color: Colors.white,
+            ),
             value: dropdownitem,
             onChanged: (Itemcat? value) {
               setState(() {

@@ -25,11 +25,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 125,
+              top: .15 * size.height,
               left: 0,
               child: Container(
                 width: size.width,
-                height: size.height - 125,
+                height: .85 * size.height,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
@@ -107,9 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 top: 280,
                 left: 30,
                 child: TextButton(
-                  onPressed: () {
-                   
-                  },
+                  onPressed: () {},
                   child: Text(
                     'Remainder',
                     textAlign: TextAlign.left,
