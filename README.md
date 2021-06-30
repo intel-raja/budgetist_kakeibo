@@ -3,7 +3,7 @@
 
 A Flutter App with Appwrite backend .
  
-Budgetist is a simple book-keeping application that allows to keep track of you and your family income and expense
+Budgetist is a simple book-keeping application that allows to keep track of you and your family income and expenses.
 
 Surely, you have many times asked the question “ Where is my money going?" but cannot find a good answer. Kakeibo - Japanese ways to save money with "magic envelopes" will help you answer the question above.
 # Kakeibo
@@ -14,7 +14,7 @@ Using the Kakeibo technique, you will learn "saving money is spending money prop
 ![Frame 43](https://user-images.githubusercontent.com/86050759/123934425-e38be600-d9b0-11eb-8aa5-b36ff8422028.png)
 
 
-by using our app you can manage your financial plans across your family.
+By using our app you can manage your financial plans across your family.
 
 We build Budgetist using Appwrite as back-end and Bloc as state management.
 ![Frame 44V2](https://user-images.githubusercontent.com/63588969/123933014-9b1ff880-d9af-11eb-96fa-706d94d8372c.png)
