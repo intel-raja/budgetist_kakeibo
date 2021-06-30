@@ -8,7 +8,9 @@ abstract class WalletEvent extends Equatable {
 }
 
 class WalletStarted extends WalletEvent {
-  final String month;
+  final int month;
 
   const WalletStarted({required this.month});
+  @override
+  List<Object> get props => [month];
 }

@@ -8,6 +8,7 @@ import 'package:budgetist_kakeibo/screen/loadingscreen.dart';
 import 'package:budgetist_kakeibo/screen/profilescreen.dart';
 
 import 'package:budgetist_kakeibo/screen/signupscreen.dart';
+import 'package:budgetist_kakeibo/screen/team.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
                 return LoadingScreen();
               } else if (state is Auth) {
                 print('auth main');
-                return Homepage();
+                return Home();
               } else {
                 print('unauth main');
                 return Signin();
@@ -50,9 +51,9 @@ class MyApp extends StatelessWidget {
         },
         Routes.signin: (content) => Signin(),
         Routes.signup: (content) => Signup(),
-        Routes.home: (content) => Homepage(),
+        Routes.home: (content) => Home(),
         Routes.profile: (content) => ProfileScreen(),
-
+        Routes.teams: (content) => TeamScreen(),
         Routes.items: (content) => Item(),
         Routes.loading: (content) => LoadingScreen(),
       },

@@ -11,7 +11,14 @@ class WalletInitial extends WalletState {}
 
 class WalletLoading extends WalletState {}
 
-class WalletFinised extends WalletState {}
+class WalletFinised extends WalletState {
+  final List<Wallet> wallet;
+
+  const WalletFinised({required this.wallet});
+
+  @override
+  List<Object> get props => [wallet];
+}
 
 class WalletFailure extends WalletState {
   final String error;

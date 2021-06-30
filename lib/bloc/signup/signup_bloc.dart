@@ -20,14 +20,14 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
       yield SignupLoading();
 
       try {
-        await UserRepo.usersignup(
+        final result = await UserRepo.usersignup(
           event.email,
           event.password,
           event.name,
         );
-        print('edit');
+        print(result);
         authBloc.add(LoginIt());
-        yield SignupFinised();
+        yield SignupFinised(massage: result);
       } catch (e) {
         yield SignupFailure(error: e.toString());
       }

@@ -6,4 +6,5 @@ class Routes {
   static final profile = '/profile';
   static final loading = '/loading';
   static final items = '/items';
+  static final teams = '/teams';
 }

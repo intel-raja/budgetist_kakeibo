@@ -91,7 +91,7 @@ class _SignupScreenState extends State<SignupScreen> {
               SnackBar(
                 content: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text('Success'), Icon(Icons.thumb_up)],
+                  children: [Text(state.massage), Icon(Icons.thumb_up)],
                 ),
                 backgroundColor: Colors.green,
               ),

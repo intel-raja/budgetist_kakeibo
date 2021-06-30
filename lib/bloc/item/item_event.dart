@@ -9,12 +9,14 @@ abstract class ItemEvent extends Equatable {
 
 class ItemAdded extends ItemEvent {
   final String username;
-  final double amount;
+  final String userid;
+  final int amount;
   final int itemNo;
   final String createdTime;
   final int monthAndYear;
 
   const ItemAdded({
+    required this.userid,
     required this.username,
     required this.amount,
     required this.itemNo,

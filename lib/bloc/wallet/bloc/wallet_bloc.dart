@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:budgetist_kakeibo/models/wallet.dart';
+import 'package:budgetist_kakeibo/repo/wallet_repo.dart';
 
 import 'package:equatable/equatable.dart';
 
@@ -18,7 +20,9 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
       yield WalletLoading();
 
       try {
-        yield WalletFinised();
+        final result = await WalletRepo.getDoc(event.month);
+        print(result);
+        yield WalletFinised(wallet: result);
       } catch (e) {
         yield WalletFailure(error: e.toString());
       }

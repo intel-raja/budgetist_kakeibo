@@ -11,7 +11,11 @@ class SignupInitial extends SignupState {}
 
 class SignupLoading extends SignupState {}
 
-class SignupFinised extends SignupState {}
+class SignupFinised extends SignupState {
+  final String massage;
+
+  const SignupFinised({required this.massage});
+}
 
 class SignupFailure extends SignupState {
   final String error;

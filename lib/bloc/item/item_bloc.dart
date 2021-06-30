@@ -21,6 +21,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
       try {
         final data = await WalletRepo.createdoc(
           event.username,
+          event.userid,
           event.amount,
           event.itemNo,
           event.monthAndYear,

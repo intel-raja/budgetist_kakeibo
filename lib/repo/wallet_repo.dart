@@ -1,10 +1,12 @@
 import 'package:budgetist_kakeibo/models/user.dart';
+import 'package:budgetist_kakeibo/models/wallet.dart';
 import 'package:budgetist_kakeibo/resourse/server.dart';
 
 class WalletRepo {
   static Future<String> createdoc(
     String name,
-    double amount,
+    String userid,
+    int amount,
     int itemNo,
     int month,
     String createdtime,
@@ -18,7 +20,15 @@ class WalletRepo {
     }
     try {
       return await Server.createdocument(
-          name, amount, itemNo, month, createdtime, id);
+          name, userid, amount, itemNo, month, createdtime, id);
+    } catch (e) {
+      return Future.error(e.toString());
+    }
+  }
+
+  static Future<List<Wallet>> getDoc(int month) async {
+    try {
+      return await Server.getdocument(month);
     } catch (e) {
       return Future.error(e.toString());
     }

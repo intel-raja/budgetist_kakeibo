@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:appwrite/appwrite.dart';
 import 'package:budgetist_kakeibo/models/user.dart';
+import 'package:budgetist_kakeibo/models/wallet.dart';
 
 class Server {
   static const endpoint = 'https://192.168.1.102:80/v1';
@@ -31,7 +32,7 @@ class Server {
       }
     }
 
-    return 'success';
+    return 'Success';
   }
 
   static signin(String email, String password) async {
@@ -102,11 +103,15 @@ class Server {
         return name!;
       }
     } on AppwriteException catch (error) {
-      return Future.error(error.message.toString());
+      if (error.code == null) {
+        return Future.error('Please Connect Internet');
+      } else {
+        return Future.error(error.message.toString());
+      }
     }
   }
 
-  static Future<Response> getdocument(String month) async {
+  static Future<List<Wallet>> getdocument(int month) async {
     final Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint
@@ -117,16 +122,24 @@ class Server {
     try {
       Response<dynamic> result = await db.listDocuments(
         collectionId: collectionid,
-        filters: ['month=$month'],
+        filters: [
+          'month=$month',
+        ],
         orderField: 'time',
-        orderType: OrderType.asc,
+        orderType: OrderType.desc,
       );
-      return result;
+
+      final json = result.data['documents'];
+
+      final tasks =
+          (json).map<Wallet>((task) => Wallet.fromJson(task)).toList();
+
+      return tasks;
     } on AppwriteException catch (error) {
       if (error.code == null) {
         return Future.error('Please Connect Internet');
       } else {
-        return Future.error(error.message.toString());
+        return Future.error(error.code.toString());
       }
     }
   }
@@ -152,7 +165,11 @@ class Server {
       }
       return false;
     } on AppwriteException catch (e) {
-      return Future.error('team error :${e.message.toString()}');
+      if (e.code == null) {
+        return Future.error('Please Connect Internet');
+      } else {
+        return Future.error(e.message.toString());
+      }
     }
   }
 
@@ -176,8 +193,8 @@ class Server {
     }
   }
 
-  static Future<String> createdocument(String name, double amount, int itemNo,
-      int month, String createdtime, String id) async {
+  static Future<String> createdocument(String name, String userid, int amount,
+      int itemNo, int month, String createdtime, String id) async {
     final Client client = Client();
     client
             .setEndpoint(endpoint) // Your API Endpoint
@@ -192,6 +209,7 @@ class Server {
         collectionId: collectionid,
         data: {
           'name': name,
+          'userid': userid,
           'amount': amount,
           'itemNo': itemNo,
           'month': month,

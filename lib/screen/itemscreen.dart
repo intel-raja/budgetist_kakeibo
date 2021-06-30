@@ -1,7 +1,7 @@
 import 'package:budgetist_kakeibo/bloc/item/item_bloc.dart';
 import 'package:budgetist_kakeibo/models/iconname.dart';
 import 'package:budgetist_kakeibo/models/user.dart';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -240,14 +240,19 @@ class _ItemScreenState extends State<ItemScreen> {
                           },
                           onFieldSubmitted: (v) {
                             if (_formKey.currentState!.validate()) {
-                              final amount = double.parse(itemcont.text);
-                              BlocProvider.of<ItemBloc>(context).add(ItemAdded(
+                              final amount = int.parse(itemcont.text);
+                              BlocProvider.of<ItemBloc>(context).add(
+                                ItemAdded(
                                   username: User.name,
+                                  userid: User.id,
                                   amount: amount,
                                   itemNo: iconno,
-                                  createdTime:
-                                      DateTime.now().toLocal().toString(),
-                                  monthAndYear: 202107));
+                                  createdTime: DateFormat('yyyyLLddHHmmS')
+                                      .format(DateTime.now()),
+                                  monthAndYear: int.parse(DateFormat('yyyyLL')
+                                      .format(DateTime.now())),
+                                ),
+                              );
                             }
                           },
                           style: TextStyle(fontSize: 20),
