@@ -16,6 +16,6 @@ Using the Kakeibo technique, you will learn "saving money is spending money prop
 
 By using our app you can manage your financial plans across your family.
 
-We build Budgetist using Appwrite as back-end and Bloc as state management.
+We build Budgetist using Appwrite as backend and Bloc as state management.
 ![Frame 44V2](https://user-images.githubusercontent.com/63588969/123933014-9b1ff880-d9af-11eb-96fa-706d94d8372c.png)
 
