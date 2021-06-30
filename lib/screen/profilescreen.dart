@@ -1,5 +1,6 @@
 import 'package:budgetist_kakeibo/models/user.dart';
 import 'package:budgetist_kakeibo/repo/user_repo.dart';
+
 import 'package:budgetist_kakeibo/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    // Figma Flutter Generator ProfileScreen - FRAME
 
     return Scaffold(
       body: Container(
@@ -90,7 +90,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               top: 160,
               left: 30,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.popAndPushNamed(context, Routes.teams);
+                },
                 child: Text(
                   'Manage Teams',
                   textAlign: TextAlign.left,
