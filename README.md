@@ -16,4 +16,5 @@ Using the Kakeibo technique, you will learn "saving money is spending money prop
 by using our app you can manage your financial plans across your family,
 
 we build using Appwrite as backend and Bloc as state management
-![Frame 44](https://user-images.githubusercontent.com/63588969/123932279-eb4a8b00-d9ae-11eb-9e0b-26ccc4d309f4.png)
+![Frame 44V2](https://user-images.githubusercontent.com/63588969/123933014-9b1ff880-d9af-11eb-96fa-706d94d8372c.png)
+
